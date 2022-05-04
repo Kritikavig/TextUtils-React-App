@@ -6,16 +6,19 @@ export default function TextForm(props) {
   const handleClearClick = () => {
     let newText = '';
     setText(newText);
+    props.showAlert("Cleared the text","success");
   };
 
   const handleUpClick = () => {
     let newText = text.toUpperCase();
     setText(newText);
+    props.showAlert("Converted text to Uppercase","success");
   };
 
   const handleLoClick = () => {
     let newText = text.toLowerCase();
     setText(newText);
+    props.showAlert("Converted text to Lowercase","success");
   };
 
   const TitleCase = () => {
@@ -26,6 +29,7 @@ export default function TextForm(props) {
        updatedText = updatedText + (firstChar + word.slice(1))+ " ";
     });
     setText(updatedText);
+    props.showAlert("Converted text to Title Case","success");
   };
 
 
@@ -33,6 +37,7 @@ export default function TextForm(props) {
     let inputText = document.getElementById("myBox");
     inputText.select();
     navigator.clipboard.writeText(inputText.value);
+    props.showAlert("Copied text to clipboard!","success");
 };
 
   const handleChange = (event) => {
